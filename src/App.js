@@ -8,6 +8,7 @@ import { QRCodeCanvas } from './components/QRCodeCanvas';
 import { BorderControls } from './components/BorderControls';
 
 
+
 export default function App() {
   const [text, setText] = useState('Hello, world!');
   const [fillType, setFillType] = useState('solid');

@@ -35,13 +35,28 @@
 }
 
 /* Responsive Design */
+@media (max-width: 968px) {
+    .generator-section {
+        padding: 5rem 1.5rem;
+    }
+
+    .generator-section-title {
+        font-size: 2.25rem;
+    }
+}
+
 @media (max-width: 640px) {
     .generator-section {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1rem;
+    }
+
+    .generator-section-container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .generator-section-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
     }
 
     .generator-section-title {
@@ -50,5 +65,24 @@
 
     .generator-section-subtitle {
         font-size: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .generator-section {
+        padding: 3rem 0.75rem;
+    }
+
+    .generator-section-header {
+        margin-bottom: 2rem;
+    }
+
+    .generator-section-title {
+        font-size: 1.625rem;
+    }
+
+    .generator-section-subtitle {
+        font-size: 0.9375rem;
     }
 }

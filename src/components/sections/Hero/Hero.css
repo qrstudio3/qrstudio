@@ -338,4 +338,8 @@
         width: 80px;
         height: 80px;
     }
+
+    .scroll-indicator {
+        display: none;
+    }
 }

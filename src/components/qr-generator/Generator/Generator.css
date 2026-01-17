@@ -102,6 +102,17 @@
     .generator-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Show QR code preview first on mobile */
+    .generator-preview {
+        order: 1;
+    }
+
+    .generator-controls {
+        order: 2;
     }
 
     .generator-controls,

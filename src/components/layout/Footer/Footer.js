@@ -20,12 +20,7 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="footer-column footer-brand">
                         <div className="footer-logo">
-                            <svg className="footer-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
-                                <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
-                                <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
-                                <rect x="16" y="16" width="3" height="3" fill="currentColor" />
-                            </svg>
+                            <img src="/Logo.png" alt="QR Studio Logo" className="footer-logo-image" />
                             <span>QR Studio</span>
                         </div>
                         <p className="footer-tagline">Beautiful QR Codes Made Simple</p>
@@ -64,10 +59,10 @@ export function Footer() {
                     <div className="footer-column">
                         <h3 className="footer-column-title">Resources</h3>
                         <ul className="footer-links">
-                            <li><a href="/about">About Us</a></li>
+                            <li><a href="https://qubitkode.com/about/" target="_blank" rel="noopener noreferrer">About Us</a></li>
                             <li><a href="/privacy">Privacy Policy</a></li>
                             <li><a href="/terms">Terms of Service</a></li>
-                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="https://qubitkode.com/contact/" target="_blank" rel="noopener noreferrer">Contact</a></li>
                         </ul>
                     </div>
                 </div>

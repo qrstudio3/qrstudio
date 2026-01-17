@@ -1,0 +1,80 @@
+/* Color Picker Group */
+.color-picker-group {
+    margin-bottom: 1.5rem;
+}
+
+.gradient-pickers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.color-picker-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.color-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+}
+
+.color-preview {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all var(--duration-normal) var(--ease-smooth);
+    cursor: pointer;
+}
+
+.color-preview:hover {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.color-input {
+    width: 100%;
+    height: 50px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-smooth);
+    outline: none;
+}
+
+.color-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-input::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--radius-md);
+}
+
+.color-input::-moz-color-swatch {
+    border: none;
+    border-radius: var(--radius-md);
+}
+
+.color-input:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.color-input:focus {
+    border-color: var(--primary-start);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}

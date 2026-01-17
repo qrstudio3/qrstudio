@@ -1,0 +1,126 @@
+/* Logo Uploader */
+.logo-uploader {
+    margin-bottom: 1.5rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.upload-area:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-start);
+    border-style: solid;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    pointer-events: none;
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--text-secondary);
+    transition: all var(--duration-normal) var(--ease-bounce);
+}
+
+.upload-area:hover .upload-icon {
+    color: var(--primary-start);
+    transform: scale(1.1) translateY(-4px);
+}
+
+.upload-text {
+    text-align: center;
+}
+
+.upload-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.upload-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.logo-preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.4s var(--ease-bounce);
+    box-shadow: var(--shadow-lg);
+}
+
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+}
+
+.remove-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--error), #dc2626);
+    border: none;
+    border-radius: var(--radius-lg);
+    color: white;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-smooth);
+    outline: none;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.remove-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.remove-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+.remove-button:active {
+    transform: translateY(0);
+}

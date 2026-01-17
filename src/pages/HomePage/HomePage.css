@@ -1,0 +1,26 @@
+/* App Container */
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: var(--text-primary);
+}

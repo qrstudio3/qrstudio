@@ -1,0 +1,89 @@
+/* QR Style Selector */
+.qr-style-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.style-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-smooth);
+    outline: none;
+    overflow: hidden;
+}
+
+.style-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.style-option.active {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    border-color: var(--primary-start);
+    color: var(--text-primary);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4),
+        0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.style-option:active {
+    transform: translateY(-1px);
+}
+
+.style-option .option-icon {
+    font-size: 2rem;
+    transition: transform var(--duration-normal) var(--ease-bounce);
+}
+
+.style-option:hover .option-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.style-option.active .option-icon {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.8));
+}
+
+.style-option .option-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.style-option .active-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-start), var(--accent-start));
+    animation: slideInRight 0.3s var(--ease-smooth);
+}
+
+@media (max-width: 768px) {
+    .qr-style-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .qr-style-selector {
+        grid-template-columns: 1fr;
+    }
+}

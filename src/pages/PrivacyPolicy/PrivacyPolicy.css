@@ -2,18 +2,24 @@
 .legal-page {
     min-height: 100vh;
     padding: 120px 2rem 4rem;
-    background: linear-gradient(180deg, rgba(10, 10, 21, 1) 0%, rgba(15, 15, 35, 1) 100%);
+    /* Background handled by global body style */
 }
 
 .legal-container {
     max-width: 900px;
     margin: 0 auto;
-    background: rgba(20, 23, 38, 0.8);
+    background: var(--surface);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-xl);
     padding: 3rem;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.legal-container:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-color: rgba(100, 255, 218, 0.2);
 }
 
 .legal-header {

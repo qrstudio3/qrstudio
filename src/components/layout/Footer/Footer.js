@@ -22,9 +22,9 @@ export function Footer() {
                     <div className="footer-column footer-brand">
                         <div className="footer-logo">
                             <img src="/Logo.png" alt="QR Studio Logo" className="footer-logo-image" />
-                            <span>QR Studio</span>
+                            
                         </div>
-                        <p className="footer-tagline">Beautiful QR Codes Made Simple</p>
+                        <p className="footer-tagline">Transform every scan into a brand experience with beautifully designed QR codes.</p>
                         <div className="social-links">
                             <a href="https://qubitkode.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Website">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,7 +73,7 @@ export function Footer() {
                 <div className="footer-bottom">
                     <div className="footer-divider"></div>
                     <p className="footer-copyright">
-                        © {currentYear} QR Studio. All rights reserved. Made with <span className="heart">❤️</span> for the community
+                        © {currentYear} QR Studio. All rights reserved. 
                     </p>
                 </div>
             </div>

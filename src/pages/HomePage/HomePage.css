@@ -2,6 +2,7 @@
 .app {
   min-height: 100vh;
   position: relative;
+  /* Global background from index.css applies here */
 }
 
 main {

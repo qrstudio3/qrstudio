@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Header } from '../../components/layout/Header/Header';
+import { Footer } from '../../components/layout/Footer/Footer';
 import './AboutUs.css';
 
 export default function AboutUs() {
@@ -88,101 +90,105 @@ export default function AboutUs() {
 
     return (
         <div className="about-page">
-            {/* Hero Section */}
-            <section className="about-hero">
-                <div className="about-content">
-                    <h1>Our Experts Dedicated<br />to Your Success</h1>
-                    <p>
-                        We bring together creativity, technical excellence, and strategic thinking to help your business grow.
-                        We don't just deliver projects, we build long-term partnerships focused on results.
-                    </p>
-                </div>
-            </section>
+            <Header />
+            <main>
+                {/* Hero Section */}
+                <section className="about-hero">
+                    <div className="about-content">
+                        <h1>Our Experts Dedicated<br />to Your Success</h1>
+                        <p>
+                            We bring together creativity, technical excellence, and strategic thinking to help your business grow.
+                            We don't just deliver projects, we build long-term partnerships focused on results.
+                        </p>
+                    </div>
+                </section>
 
-            {/* Core Values / Stats */}
-            <section className="about-section">
-                <div className="values-grid">
-                    <div className="value-card">
-                        <div className="value-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
+                {/* Core Values / Stats */}
+                <section className="about-section">
+                    <div className="values-grid">
+                        <div className="value-card">
+                            <div className="value-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h3>Skilled Professionals</h3>
+                            <p>Experts in web, mobile, AI, Game, and digital growth dedicated to delivering excellence.</p>
                         </div>
-                        <h3>Skilled Professionals</h3>
-                        <p>Experts in web, mobile, AI, Game, and digital growth dedicated to delivering excellence.</p>
-                    </div>
-                    <div className="value-card">
-                        <div className="value-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
+                        <div className="value-card">
+                            <div className="value-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3>Client-Centric Approach</h3>
+                            <p>Your goals shape every solution we create. We prioritize your vision and business objectives.</p>
                         </div>
-                        <h3>Client-Centric Approach</h3>
-                        <p>Your goals shape every solution we create. We prioritize your vision and business objectives.</p>
-                    </div>
-                    <div className="value-card">
-                        <div className="value-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
+                        <div className="value-card">
+                            <div className="value-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <h3>Proven Results</h3>
+                            <p>Consistent delivery, measurable impact, and lasting success for businesses worldwide.</p>
                         </div>
-                        <h3>Proven Results</h3>
-                        <p>Consistent delivery, measurable impact, and lasting success for businesses worldwide.</p>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Services Section */}
-            <section className="about-section services-section">
-                <h2 className="section-title">All Services We Provide<br /><span>To Our Clients</span></h2>
-                <div className="services-grid">
-                    {services.map((service, index) => (
-                        <div key={index} className="service-card">
-                            <div className="service-headers">
-                                <div className="service-icon-wrapper">
-                                    {service.icon}
+                {/* Services Section */}
+                <section className="about-section services-section">
+                    <h2 className="section-title">All Services We Provide<br /><span>To Our Clients</span></h2>
+                    <div className="services-grid">
+                        {services.map((service, index) => (
+                            <div key={index} className="service-card">
+                                <div className="service-headers">
+                                    <div className="service-icon-wrapper">
+                                        {service.icon}
+                                    </div>
+                                    <h4>{service.title}</h4>
                                 </div>
-                                <h4>{service.title}</h4>
+                                <p>{service.description}</p>
                             </div>
-                            <p>{service.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                        ))}
+                    </div>
+                </section>
 
-            {/* Timeline Section */}
-            <section className="about-section timeline-section">
-                <h2 className="section-title">Company <span>Timeline</span></h2>
-                <div className="timeline-container">
-                    {timelineEvents.map((event, index) => (
-                        <div key={index} className="timeline-item">
-                            <div className="timeline-dot"></div>
-                            <div className="timeline-content">
-                                <span className="timeline-year">{event.year}</span>
-                                <h3>{event.title}</h3>
-                                <p>{event.description}</p>
+                {/* Timeline Section */}
+                <section className="about-section timeline-section">
+                    <h2 className="section-title">Company <span>Timeline</span></h2>
+                    <div className="timeline-container">
+                        {timelineEvents.map((event, index) => (
+                            <div key={index} className="timeline-item">
+                                <div className="timeline-dot"></div>
+                                <div className="timeline-content">
+                                    <span className="timeline-year">{event.year}</span>
+                                    <h3>{event.title}</h3>
+                                    <p>{event.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                        ))}
+                    </div>
+                </section>
 
-            {/* CTA Section */}
-            <section className="about-cta">
-                <div className="cta-content">
-                    <h2>Grow Your Business With Us</h2>
-                    <p>
-                        We design, build, and scale digital products from websites, mobile apps, and immersive games to AI systems.
-                        Let's turn your ideas into impactful digital experiences.
-                    </p>
-                    <a href="https://qubitkode.com/contact/" target="_blank" rel="noopener noreferrer" className="cta-button">
-                        Contact Us Today
-                    </a>
-                </div>
-            </section>
+                {/* CTA Section */}
+                <section className="about-cta">
+                    <div className="cta-content">
+                        <h2>Grow Your Business With Us</h2>
+                        <p>
+                            We design, build, and scale digital products from websites, mobile apps, and immersive games to AI systems.
+                            Let's turn your ideas into impactful digital experiences.
+                        </p>
+                        <a href="https://qubitkode.com/contact/" target="_blank" rel="noopener noreferrer" className="cta-button">
+                            Contact Us Today
+                        </a>
+                    </div>
+                </section>
+            </main>
+            <Footer />
         </div>
     );
 }

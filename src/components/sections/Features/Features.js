@@ -5,6 +5,17 @@ export function Features() {
     const sectionRef = useRef(null);
     const trackRef = useRef(null);
     const [progress, setProgress] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const features = [
         {
@@ -92,10 +103,11 @@ export function Features() {
             <div className="features-sticky-wrapper">
                 <div className="features-header-overlay">
                     <h2 className="features-title">Powerful Features</h2>
-                    <p>Scroll down to explore</p>
+                    <p className="mobile-hidden">Scroll down to explore</p>
+                    <p className="mobile-only">Swipe to explore</p>
                 </div>
 
-                <div className="features-horizontal-track" ref={trackRef} style={{ transform: `translateX(-${progress * 75}%)` }}>
+                <div className="features-horizontal-track" ref={trackRef} style={isMobile ? {} : { transform: `translateX(-${progress * 75}%)` }}>
                     {features.map((feature, index) => (
                         <div key={index} className={`feature-fullscreen-card ${feature.bgClass}`}>
                             <div className="feature-content-container">

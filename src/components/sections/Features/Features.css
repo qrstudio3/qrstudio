@@ -181,23 +181,80 @@
 @media (max-width: 768px) {
     .features-section {
         height: auto;
-        /* reset height for vertical scroll on mobile if needed, but keeping horizontal is often preferred for consistency, lets keep it sticky */
-        /* To make it truly mobile friendly while keeping the effect, we keep as is, but adjust content size */
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .features-sticky-wrapper {
+        position: relative;
+        height: auto;
+        display: block;
+    }
+
+    .features-horizontal-track {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .features-horizontal-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .feature-fullscreen-card {
+        width: 100vw;
+        height: 100vh;
+        min-width: 100vw;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        padding: 80px 20px 40px;
+        /* More top padding for header */
+    }
+
+    .features-header-overlay {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        z-index: 20;
+        pointer-events: none;
     }
 
     .feature-content-container {
-        padding: 40px 24px;
+        padding: 20px;
+        transform: none !important;
+        /* Disable hover effect lift on mobile */
     }
 
     .feature-content-container h3 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        margin-bottom: 16px;
     }
 
     .feature-content-container p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 32px;
     }
 
     .features-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .mobile-hidden {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
     }
 }

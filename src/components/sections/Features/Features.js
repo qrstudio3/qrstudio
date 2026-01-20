@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Features.css';
 
 export function Features() {
+    const sectionRef = useRef(null);
+    const trackRef = useRef(null);
+    const [progress, setProgress] = useState(0);
+
     const features = [
         {
             icon: (
@@ -11,7 +15,8 @@ export function Features() {
                 </svg>
             ),
             title: 'Custom Styling',
-            description: 'Choose from solid colors, beautiful gradients, or custom image patterns. Make your QR codes truly unique.'
+            description: 'Choose from solid colors, beautiful gradients, or custom image patterns. Make your QR codes truly unique.',
+            bgClass: 'bg-custom-styling'
         },
         {
             icon: (
@@ -21,7 +26,8 @@ export function Features() {
                 </svg>
             ),
             title: 'Logo Integration',
-            description: 'Add your brand logo to the center of QR codes with customizable borders and corner roundness.'
+            description: 'Add your brand logo to the center of QR codes with customizable borders and corner roundness.',
+            bgClass: 'bg-logo-integration'
         },
         {
             icon: (
@@ -30,7 +36,8 @@ export function Features() {
                 </svg>
             ),
             title: 'Instant Generation',
-            description: 'Real-time preview as you customize. Download high-quality PNG images instantly anytime.'
+            description: 'Real-time preview as you customize. Download high-quality PNG images instantly anytime.',
+            bgClass: 'bg-instant'
         },
         {
             icon: (
@@ -40,32 +47,71 @@ export function Features() {
                 </svg>
             ),
             title: 'Always Free',
-            description: 'No subscriptions, no hidden fees, no sign-up required. Create unlimited QR codes forever free.'
+            description: 'No subscriptions, no hidden fees. Create unlimited QR codes forever free.',
+            bgClass: 'bg-free'
         }
     ];
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!sectionRef.current) return;
+
+            const element = sectionRef.current;
+            const { top } = element.getBoundingClientRect();
+            const totalHeight = element.offsetHeight - window.innerHeight;
+
+            // Calculate progress based on how far we've scrolled into the container
+            // We want it to start when the top reaches 0, and end when the bottom reaches window height
+            let scrollProgress = -top / totalHeight;
+
+            // Clamp value between 0 and 1
+            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+
+            setProgress(scrollProgress);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
+    }, []);
+
+    const scrollToGenerator = () => {
+        const element = document.getElementById('generator');
+        if (element) {
+            const offset = 80;
+            const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    };
+
     return (
-        <section id="features" className="features-section">
-            <div className="features-container">
-                <div className="features-header">
-                    <h2 className="features-title">Powerful Features for Beautiful QR Codes</h2>
-                    <p className="features-subtitle">
-                        Everything you need to create professional, branded QR codes that stand out
-                    </p>
+        <section id="features" className="features-section" ref={sectionRef}>
+            <div className="features-sticky-wrapper">
+                <div className="features-header-overlay">
+                    <h2 className="features-title">Powerful Features</h2>
+                    <p>Scroll down to explore</p>
                 </div>
 
-                <div className="features-grid">
+                <div className="features-horizontal-track" ref={trackRef} style={{ transform: `translateX(-${progress * 75}%)` }}>
                     {features.map((feature, index) => (
-                        <div
-                            key={index}
-                            className="feature-card"
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                            <div className="feature-icon">
-                                {feature.icon}
+                        <div key={index} className={`feature-fullscreen-card ${feature.bgClass}`}>
+                            <div className="feature-content-container">
+                                <div className="feature-icon-large">
+                                    {feature.icon}
+                                </div>
+                                <h3>{feature.title}</h3>
+                                <p>{feature.description}</p>
+                                <button className="start-creating-btn" onClick={scrollToGenerator}>
+                                    Try It Now
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginLeft: '8px' }}>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
                             </div>
-                            <h3 className="feature-title">{feature.title}</h3>
-                            <p className="feature-description">{feature.description}</p>
                         </div>
                     ))}
                 </div>

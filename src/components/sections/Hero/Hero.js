@@ -70,13 +70,19 @@ export function Hero() {
             <div className="hero-visual">
                 <div className="qr-showcase">
                     <div className="qr-sample qr-sample-1">
-                        <div className="sample-qr"></div>
+                        <div className="sample-qr">
+                            <img src="/brand-logo-1.png" alt="Brand Logo 1" className="qr-brand-logo" />
+                        </div>
                     </div>
                     <div className="qr-sample qr-sample-2">
-                        <div className="sample-qr"></div>
+                        <div className="sample-qr">
+                            <img src="/brand-logo-2.png" alt="Brand Logo 2" className="qr-brand-logo" />
+                        </div>
                     </div>
                     <div className="qr-sample qr-sample-3">
-                        <div className="sample-qr"></div>
+                        <div className="sample-qr">
+                            <img src="/brand-logo-3.png" alt="Brand Logo 3" className="qr-brand-logo" />
+                        </div>
                     </div>
                 </div>
             </div>

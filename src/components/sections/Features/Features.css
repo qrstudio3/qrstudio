@@ -1,167 +1,203 @@
-/* Features Section */
+/* Features Section - Sticky Horizontal Scroll */
 .features-section {
-    padding: 6rem 2rem;
-    background: rgba(255, 255, 255, 0.02);
+    height: 400vh;
+    /* Make the section tall enough to allow scrolling */
     position: relative;
+    background: #0a192f;
 }
 
-.features-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.features-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-/* Features Header */
-.features-header {
+.features-header-overlay {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     text-align: center;
-    margin-bottom: 4rem;
-    animation: fadeIn 0.8s var(--ease-smooth);
+    width: 100%;
+    pointer-events: none;
+    /* Let clicks pass through */
+    transition: opacity 0.3s ease;
 }
 
 .features-title {
-    font-size: 2.75rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 1rem 0;
-    background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #e6f1ff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 8px;
 }
 
-.features-subtitle {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin: 0;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.features-header-overlay p {
+    color: #64ffda;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* Features Grid */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+.features-horizontal-track {
+    display: flex;
+    height: 100%;
+    width: 400%;
+    /* 4 items * 100% width */
+    will-change: transform;
+    /* Optimize for performance */
 }
 
-/* Feature Card */
-.feature-card {
-    padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-2xl);
-    transition: all var(--duration-normal) var(--ease-smooth);
-    animation: fadeIn 0.6s var(--ease-smooth) backwards;
-}
-
-.feature-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Feature Icon */
-.feature-icon {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
-    border-radius: var(--radius-xl);
+/* Base Styles for Fullscreen Cards */
+.feature-fullscreen-card {
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--duration-normal) var(--ease-smooth);
+    position: relative;
+    padding: 20px;
+    flex-shrink: 0;
 }
 
-.feature-card:nth-child(2) .feature-icon {
-    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+/* Dynamic Backgrounds using gradients/patterns */
+.bg-custom-styling {
+    background: radial-gradient(circle at center, rgba(100, 255, 218, 0.15) 0%, #0a192f 70%),
+        linear-gradient(45deg, #112240 25%, transparent 25%, transparent 75%, #112240 75%, #112240);
+    background-size: 100% 100%, 60px 60px;
 }
 
-.feature-card:nth-child(3) .feature-icon {
-    background: linear-gradient(135deg, var(--secondary-start), var(--secondary-end));
+.bg-logo-integration {
+    background: radial-gradient(circle at 30% 50%, rgba(29, 78, 216, 0.2), transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.15), transparent 50%),
+        #0a192f;
 }
 
-.feature-card:nth-child(4) .feature-icon {
-    background: linear-gradient(135deg, var(--success), #059669);
+.bg-instant {
+    background: linear-gradient(to bottom, #0a192f, #112240);
+    position: relative;
 }
 
-.feature-card:hover .feature-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+.bg-instant::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
-.feature-icon svg {
-    width: 32px;
-    height: 32px;
-    color: white;
+.bg-free {
+    background: radial-gradient(ellipse at bottom, #1d4ed8 0%, #0a192f 70%);
 }
 
-/* Feature Content */
-.feature-title {
+
+.feature-content-container {
+    /* Removed card background/border to match Hero style "full size" feel */
+    background: transparent;
+    border: none;
+    padding: 0 20px;
+    max-width: 1000px;
+    /* Wider, rectangular feel */
+    width: 100%;
+    text-align: center;
+    box-shadow: none;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-fullscreen-card:hover .feature-content-container {
+    transform: translateY(0);
+}
+
+.feature-icon-large {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 40px;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 50%;
+    /* Keep circular icon or change to rounded rect if requested, but user said 'features' (the whole thing) in square shape. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64ffda;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+}
+
+.feature-icon-large svg {
+    width: 56px;
+    height: 56px;
+}
+
+.feature-content-container h3 {
+    font-size: 3.5rem;
+    /* Larger, like Hero title */
+    font-weight: 800;
+    color: #e6f1ff;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+
+.feature-content-container p {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 0.75rem 0;
-}
-
-.feature-description {
-    font-size: 1rem;
+    /* Larger, like Hero subtitle */
+    color: #8892b0;
     line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0;
+    margin-bottom: 48px;
+    max-width: 800px;
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .features-title {
-        font-size: 2.25rem;
-    }
+.start-creating-btn {
+    background: transparent;
+    color: #64ffda;
+    border: 1px solid #64ffda;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
-@media (max-width: 640px) {
+.start-creating-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
     .features-section {
-        padding: 4rem 1.5rem;
+        height: auto;
+        /* reset height for vertical scroll on mobile if needed, but keeping horizontal is often preferred for consistency, lets keep it sticky */
+        /* To make it truly mobile friendly while keeping the effect, we keep as is, but adjust content size */
     }
 
-    .features-header {
-        margin-bottom: 3rem;
+    .feature-content-container {
+        padding: 40px 24px;
     }
 
-    .features-title {
-        font-size: 1.875rem;
+    .feature-content-container h3 {
+        font-size: 1.8rem;
     }
 
-    .features-subtitle {
+    .feature-content-container p {
         font-size: 1rem;
     }
 
-    .feature-card {
-        padding: 2rem;
-    }
-
-    .feature-icon {
-        width: 56px;
-        height: 56px;
-    }
-
-    .feature-icon svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    .feature-title {
-        font-size: 1.25rem;
-    }
-
-    .feature-description {
-        font-size: 0.9375rem;
+    .features-title {
+        font-size: 1.8rem;
     }
 }

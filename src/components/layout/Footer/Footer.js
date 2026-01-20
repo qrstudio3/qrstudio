@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export function Footer() {
@@ -61,10 +62,10 @@ export function Footer() {
                     <div className="footer-column">
                         <h3 className="footer-column-title">Resources</h3>
                         <ul className="footer-links">
-                            <li><a href="https://qubitkode.com/about/" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                            <li><Link to="/about">About Us</Link></li>
                             <li><a href="/privacy">Privacy Policy</a></li>
                             <li><a href="/terms">Terms of Service</a></li>
-                            <li><a href="https://qubitkode.com/contact/" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                            <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </div>
                 </div>

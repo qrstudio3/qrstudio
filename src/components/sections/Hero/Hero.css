@@ -190,31 +190,41 @@
     border-radius: var(--radius-md);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    /* Ensure visibility if gradient is overlay */
+}
+
+/* QR Logos */
+.qr-brand-logo {
+    width: 85%;
+    /* Increased from 60% */
+    height: auto;
+    object-fit: contain;
+    z-index: 5;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .qr-sample-1 .sample-qr {
-    background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    border: 1px solid rgba(100, 255, 218, 0.3);
 }
 
 .qr-sample-2 .sample-qr {
-    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .qr-sample-3 .sample-qr {
-    background: linear-gradient(135deg, var(--secondary-start), var(--secondary-end));
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(245, 158, 11, 0.1));
+    border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
-/* Add QR pattern overlay */
+/* Removed QR pattern overlay as requested */
 .sample-qr::before {
-    content: '';
-    position: absolute;
-    inset: 10%;
-    background-image:
-        linear-gradient(currentColor 1px, transparent 1px),
-        linear-gradient(90deg, currentColor 1px, transparent 1px);
-    background-size: 10px 10px;
-    opacity: 0.3;
-    color: white;
+    display: none;
 }
 
 /* Scroll Indicator */

@@ -22,7 +22,7 @@ export function Footer() {
                     <div className="footer-column footer-brand">
                         <div className="footer-logo">
                             <img src="/Logo.png" alt="QR Studio Logo" className="footer-logo-image" />
-                            
+
                         </div>
                         <p className="footer-tagline">Transform every scan into a brand experience with beautifully designed QR codes.</p>
                         <div className="social-links">
@@ -63,8 +63,8 @@ export function Footer() {
                         <h3 className="footer-column-title">Resources</h3>
                         <ul className="footer-links">
                             <li><Link to="/about">About Us</Link></li>
-                            <li><a href="/privacy">Privacy Policy</a></li>
-                            <li><a href="/terms">Terms of Service</a></li>
+                            <li><Link to="/privacy">Privacy Policy</Link></li>
+                            <li><Link to="/terms">Terms of Service</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </div>
@@ -73,7 +73,7 @@ export function Footer() {
                 <div className="footer-bottom">
                     <div className="footer-divider"></div>
                     <p className="footer-copyright">
-                        © {currentYear} QR Studio. All rights reserved. 
+                        © {currentYear} QR Studio. All rights reserved.
                     </p>
                 </div>
             </div>
